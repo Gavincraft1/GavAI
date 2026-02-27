@@ -133,7 +133,9 @@ public class Program
 
             history.Add(new ChatMessage { role = "assistant", content = output });
 
-            output = $"{ping} {Truncate(output)}";
+            output = "{ping} {output}";
+
+            output = Truncate(output);
 
             await Utils.SendReplyAsync(ChannelCache, channelId, output);
         };
