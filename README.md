@@ -121,7 +121,7 @@ All required NuGet packages are installed automatically via <code>SkyAI.csproj</
 
 <pre><code>TOKEN=your-valour-bot-token
 OPENWEBAPI=your-openwebui-api-key
-OPENWEBURL=http://localhost:8080</code></pre>
+OPENWEBURL=your-openwebui-url</code></pre>
 
 <p>
 Do not commit this file to version control.
@@ -149,6 +149,10 @@ Do not commit this file to version control.
 <tr>
 <td><code>s.cm</code></td>
 <td>Clear channel conversation memory</td>
+</tr>
+<tr>
+<td><code>s.source</code></td>
+<td>Shows the source code of the bot</td>
 </tr>
 </table>
 
