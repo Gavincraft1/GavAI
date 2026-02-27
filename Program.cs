@@ -103,7 +103,7 @@ public class Program
 
             var history = GetOrCreateHistory(channelId);
 
-            history.Add(new ChatMessage { role = "user", content = prompt });
+            history.Add(new ChatMessage { role = "user", content = $"User: {member.Name} (ID: {member.Id}) | {prompt}" });
             TrimHistory(history);
 
             var payload = new
@@ -133,7 +133,7 @@ public class Program
 
             history.Add(new ChatMessage { role = "assistant", content = output });
 
-            output = "{ping} {output}";
+            output = $"{ping} {output}";
 
             output = Truncate(output);
 
