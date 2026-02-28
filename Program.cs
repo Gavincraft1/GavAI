@@ -20,8 +20,9 @@ public class Program
     const int MaxResponseLength = 2048;
     const string ModelName = "llama3.1:latest";
 
-    private static readonly Dictionary<long, Channel> ChannelCache = new();
+    private static readonly Dictionary<long, Channel> channelCache = new();
     private static readonly Dictionary<long, List<ChatMessage>> ChatHistory = new();
+    private static readonly HashSet<long> InitializedPlanets = new();
 
     public static async Task Main()
     {
@@ -51,15 +52,7 @@ public class Program
 
         Console.WriteLine($"Logged in as {client.Me.Name}");
 
-        await client.BotService.JoinAllChannelsAsync();
-
-        foreach (var planet in client.PlanetService.JoinedPlanets)
-        {
-            foreach (var channel in planet.Channels)
-            {
-                ChannelCache[channel.Id] = channel;
-            }
-        }
+        await Utils.InitializePlanetsAsync(client, channelCache, InitializedPlanets);
 
         var httpClient = new HttpClient
         {
@@ -82,13 +75,13 @@ public class Program
             if (content.StartsWith("s.cm"))
             {
                 ChatHistory.Remove(channelId);
-                await Utils.SendReplyAsync(ChannelCache, channelId, $"{ping} Channel memory cleared.");
+                await Utils.SendReplyAsync(channelCache, channelId, $"{ping} Channel memory cleared.");
                 return;
             }
 
             if (content.StartsWith("s.source"))
             {
-                await Utils.SendReplyAsync(ChannelCache, channelId, $"{ping} You can find my source code here: https://github.com/SkyJoshua/SkyAI");
+                await Utils.SendReplyAsync(channelCache, channelId, $"{ping} You can find my source code here: https://github.com/SkyJoshua/SkyAI");
             }
 
             if (!content.StartsWith("s.ai"))
@@ -97,7 +90,7 @@ public class Program
             var prompt = content.Substring(5).Trim();
             if (string.IsNullOrWhiteSpace(prompt))
             {
-                await Utils.SendReplyAsync(ChannelCache, channelId, $"{ping} Enter a question.");
+                await Utils.SendReplyAsync(channelCache, channelId, $"{ping} Enter a question.");
                 return;
             }
 
@@ -137,7 +130,7 @@ public class Program
 
             output = Truncate(output);
 
-            await Utils.SendReplyAsync(ChannelCache, channelId, output);
+            await Utils.SendReplyAsync(channelCache, channelId, output);
         };
 
         Console.WriteLine("Listening...");

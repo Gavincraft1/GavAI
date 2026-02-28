@@ -1,0 +1,5 @@
+bin/
+obj/
+SkyAI.sln
+Program.cs.old
+.env
