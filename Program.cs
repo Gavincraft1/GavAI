@@ -88,7 +88,7 @@ public class Program
             if (!content.StartsWith($"{prefix}ai"))
                 return;
 
-            var prompt = content.Substring(5).Trim();
+            var prompt = content.Substring(prefix.Length+3).Trim();
             if (string.IsNullOrWhiteSpace(prompt))
             {
                 await Utils.SendReplyAsync(channelCache, channelId, $"{ping} Enter a question.");
@@ -108,12 +108,55 @@ public class Program
 
             var json = JsonSerializer.Serialize(payload);
 
-            var response = await httpClient.PostAsync(
-                "/api/chat/completions",
-                new StringContent(json, Encoding.UTF8, "application/json")
-            );
 
-            response.EnsureSuccessStatusCode();
+            HttpResponseMessage response;
+            try
+            {
+                response = await httpClient.PostAsync(
+                    "/api/chat/completions",
+                    new StringContent(json, Encoding.UTF8, "application/json")
+                );
+            }
+            catch (HttpRequestException ex)
+            {
+                await Utils.SendReplyAsync(
+                    channelCache,
+                    channelId,
+                    $"{ping} Cannot reach OpenWebUI server. Check OPENWEBURL.\nError: {ex.Message}"
+                );
+                return;
+            }
+            catch (TaskCanceledException)
+            {
+                await Utils.SendReplyAsync(
+                    channelCache,
+                    channelId,
+                    $"{ping} Connection timed out. Check OPENWEBURL."
+                );
+                return;
+            }
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                await Utils.SendReplyAsync(
+                    channelCache,
+                    channelId,
+                    $"{ping} OpenWebUI API key is invalid."
+                );
+                return;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorBody = await response.Content.ReadAsStringAsync();
+
+                await Utils.SendReplyAsync(
+                    channelCache,
+                    channelId,
+                    $"{ping} OpenWebUI error {(int)response.StatusCode}:\n{errorBody}"
+                );
+                return;
+            }
 
             var responseText = await response.Content.ReadAsStringAsync();
 
