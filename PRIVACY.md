@@ -7,7 +7,7 @@
 <p><strong>Effective Date:</strong> February 27, 2026</p>
 
 <p>
-This Privacy Policy describes how SkyAI (“the Bot”) collects, uses,
+This Privacy Policy describes how GavAI (“the Bot”) collects, uses,
 and stores information when used within a Valour server.
 </p>
 
@@ -16,7 +16,7 @@ and stores information when used within a Valour server.
 <h2>1. Information Collected</h2>
 
 <p>
-SkyAI collects only the minimum data required to function.
+GavAI collects only the minimum data required to function.
 </p>
 
 <h3>Information Stored (In Memory Only)</h3>
@@ -79,7 +79,7 @@ securing the hosting environment.
 <h2>4. Third-Party Processing</h2>
 
 <p>
-SkyAI forwards message content to a self-hosted AI backend
+GavAI forwards message content to a self-hosted AI backend
 via Open WebUI.
 </p>
 
@@ -93,7 +93,7 @@ Depending on configuration, this may include:
 </ul>
 
 <p>
-SkyAI does not transmit data to external cloud AI providers
+GavAI does not transmit data to external cloud AI providers
 unless explicitly configured by the host operator.
 </p>
 
@@ -120,7 +120,7 @@ Data is removed when:
 <h2>6. Self-Hosted Responsibility</h2>
 
 <p>
-SkyAI is designed for self-hosting.
+GavAI is designed for self-hosting.
 </p>
 
 <p>
@@ -157,7 +157,7 @@ For privacy-related inquiries:
 </p>
 
 <p>
-Email: contact@skyjoshua.xyz
+Email: contact@Gavin040407@gmail.com
 </p>
 
 </body>
