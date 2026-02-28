@@ -18,8 +18,8 @@ public class Program
 {
     const int MaxHistoryMessages = 10;
     const int MaxResponseLength = 2048;
-    const string ModelName = "llama3.1:latest";
-    const string prefix = "s.";
+    const string ModelName = "lfm2:latest";
+    const string prefix = "/gav ";
 
     private static readonly Dictionary<long, Channel> channelCache = new();
     private static readonly Dictionary<long, List<ChatMessage>> ChatHistory = new();
