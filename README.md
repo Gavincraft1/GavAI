@@ -2,10 +2,10 @@
 <html lang="en">
 <body>
 
-<h1>SkyAI</h1>
+<h1>GavAI</h1>
 
 <p>
-SkyAI is a Valour.gg bot powered by a self-hosted Large Language Model via Open WebUI.
+GavAI is a Valour.gg bot (fork of SkyBot) powered by a self-hosted Large Language Model via Open WebUI.
 </p>
 
 <p>
@@ -26,7 +26,7 @@ It supports per-channel conversational memory and is designed for self-hosted de
 <hr>
 
 <h2>How It Works</h2>
-<p>SkyAI connects to:</p>
+<p>GavAI connects to:</p>
 <ul>
     <li>Valour.gg API</li>
     <li>Open WebUI <code>/api/chat/completions</code> endpoint</li>
@@ -43,7 +43,7 @@ excessive token usage.
 
 <h2>Data &amp; Privacy</h2>
 
-<p>SkyAI stores only the minimum data required for operation.</p>
+<p>GavAI stores only the minimum data required for operation.</p>
 
 <h3>Stored In Memory (Per Channel)</h3>
 <ul>
@@ -66,8 +66,8 @@ Conversation history resets automatically when the bot restarts.
 
 <p>
 Full privacy policy:<br>
-<a href="https://github.com/SkyJoshua/SkyAI/blob/main/PRIVACY.md">
-https://github.com/SkyJoshua/SkyAI/blob/main/PRIVACY.md
+<a href="https://github.com/Gavincraft1/GavAI/blob/main/PRIVACY.md">
+https://github.com/Gavincraft1/GavAI/blob/main/PRIVACY.md
 </a>
 </p>
 
@@ -81,8 +81,8 @@ This project is licensed under the
 
 <p>
 See the LICENSE file for details:<br>
-<a href="https://github.com/SkyJoshua/SkyAI/blob/main/LICENSE">
-https://github.com/SkyJoshua/SkyAI/blob/main/LICENSE
+<a href="https://github.com/Gavincraft1/GavAI/blob/main/LICENSE">
+https://github.com/Gavincraft1/GavAI/blob/main/LICENSE
 </a>
 </p>
 
