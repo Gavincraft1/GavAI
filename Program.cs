@@ -82,7 +82,7 @@ public class Program
 
             if (content.StartsWith($"{prefix}source"))
             {
-                await Utils.SendReplyAsync(channelCache, channelId, $"{ping} You can find my source code here: https://github.com/SkyJoshua/SkyAI");
+                await Utils.SendReplyAsync(channelCache, channelId, $"{ping} You can find my source code here: https://github.com/Gavincraft1/GavAI");
             }
 
             if (!content.StartsWith($"{prefix}ai"))
