@@ -95,12 +95,12 @@ you must make your source code available under the same AGPL-3.0 license.
 
 <h2>Installation</h2>
 
-<pre><code>git clone https://github.com/YOUR_USERNAME/SkyAI.git
-cd SkyAI
+<pre><code>git clone https://github.com/YOUR_USERNAME/GavAI.git
+cd GavAI
 dotnet restore</code></pre>
 
 <p>
-All required NuGet packages are installed automatically via <code>SkyAI.csproj</code>.
+All required NuGet packages are installed automatically via <code>GavAI.csproj</code>.
 </p>
 
 <hr>
