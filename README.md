@@ -5,7 +5,7 @@
 <h1>GavAI</h1>
 
 <p>
-GavAI is a Valour.gg bot (fork of SkyBot that i essentially stole, don't credit me) powered by a self-hosted Large Language Model via Open WebUI.
+GavAI is a Valour.gg bot (fork of SkyBot that I essentially stole, don't credit me) powered by a self-hosted Large Language Model via Open WebUI.
 </p>
 
 <p>
