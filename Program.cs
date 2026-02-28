@@ -19,6 +19,7 @@ public class Program
     const int MaxHistoryMessages = 10;
     const int MaxResponseLength = 2048;
     const string ModelName = "llama3.1:latest";
+    const string prefix = "s.";
 
     private static readonly Dictionary<long, Channel> channelCache = new();
     private static readonly Dictionary<long, List<ChatMessage>> ChatHistory = new();
@@ -72,19 +73,19 @@ public class Program
             var member    = await message.FetchAuthorMemberAsync();
             var ping      = $"«@m-{member.Id}»";
 
-            if (content.StartsWith("s.cm"))
+            if (content.StartsWith($"{prefix}cm"))
             {
                 ChatHistory.Remove(channelId);
                 await Utils.SendReplyAsync(channelCache, channelId, $"{ping} Channel memory cleared.");
                 return;
             }
 
-            if (content.StartsWith("s.source"))
+            if (content.StartsWith($"{prefix}source"))
             {
                 await Utils.SendReplyAsync(channelCache, channelId, $"{ping} You can find my source code here: https://github.com/SkyJoshua/SkyAI");
             }
 
-            if (!content.StartsWith("s.ai"))
+            if (!content.StartsWith($"{prefix}ai"))
                 return;
 
             var prompt = content.Substring(5).Trim();
